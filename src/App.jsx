@@ -1,20 +1,26 @@
-import { useState } from 'react'
-
+import { Suspense, useState } from 'react'
+import Users from './Users'
 import './App.css'
+// import User from './User'
+
+// import User from './user'
+const fetchData = fetch("https://jsonplaceholder.typicode.com/users").then(res => res.json())
+
+
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <>
-      <h1>Hi React</h1>
-      <Pet></Pet>
-      <Pet></Pet>
-      <Pet></Pet>
-      <Pet></Pet>
-      <Pet></Pet>
-      <Pet></Pet>
-      <Pet></Pet>
+    
+      <Suspense>
+        <Users fetchData={fetchData}>
+
+
+        </Users>
+      </Suspense>
+
 
 
     </>
